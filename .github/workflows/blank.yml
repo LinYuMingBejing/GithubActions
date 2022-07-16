@@ -37,5 +37,5 @@ jobs: # Groups together all the jobs that run in the learn-github-actions workfl
           cd /home/runner/work/GithubActions/GithubActions
           ls -al
       - name: The job has succeeded
-        if: ${{ success() }}
+        if: success()
       
