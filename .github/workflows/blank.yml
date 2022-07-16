@@ -10,3 +10,16 @@ jobs: # Groups together all the jobs that run in the learn-github-actions workfl
           node-version: '14'
       - run: npm install -g bats # The run keyword tells the job to execute a command on the runner.
       - run: bats -v
+
+  example-job:
+    name: Save output
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: |
+          expr 1 + 1 > output.log
+      - name: Upload output file
+        uses: actions/upload-artifact@v3
+        with:
+          name: output-log-file
+          path: output.log
