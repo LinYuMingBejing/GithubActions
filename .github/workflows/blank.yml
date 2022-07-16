@@ -32,3 +32,7 @@ jobs: # Groups together all the jobs that run in the learn-github-actions workfl
         uses: actions/download-artifact@v3
         with:
           name: output-log-file
+      - shell: bash
+        run: |
+          cd /home/runner/work/GithubActions/GithubActions
+          ls -al
