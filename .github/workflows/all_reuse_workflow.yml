@@ -5,7 +5,7 @@ on:
 
 jobs:
   job1:
-    uses: LinYuMingBejing/GithubActions/.github/workflows/reuse_workflow.yml@v1
+    uses: LinYuMingBejing/GithubActions/.github/workflows/reuse_workflow.yml@main
 
   job2:
     runs-on: ubuntu-latest
