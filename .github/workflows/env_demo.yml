@@ -19,19 +19,30 @@ jobs:
     steps:
       - run: echo 'Hi ${{ env.mascot }}'  # Hi Tux
       
-  postgres-job:
-    runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres
-        env:
-          POSTGRES_PASSWORD: postgres
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-        ports:
-          # Maps TCP port 5432 in the service container to a randomly chosen available port on the host.
-          - 5432
+#   postgres-job:
+#     runs-on: ubuntu-latest
+#     services:
+#       postgres:
+#         image: postgres
+#         env:
+#           POSTGRES_PASSWORD: postgres
+#         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+#         ports:
+#           # Maps TCP port 5432 in the service container to a randomly chosen available port on the host.
+#           - 5432
 
+#     steps:
+#       - uses: actions/checkout@v3
+#       - run: pg_isready -h localhost -p ${{ job.services.postgres.ports[5432] }}
+#       - run: ./run-tests
+  randomly-failing-job:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: pg_isready -h localhost -p ${{ job.services.postgres.ports[5432] }}
-      - run: ./run-tests
+      - id: checkout
+        uses: actions/checkout@v3
+      - name: Generate 0 or 1
+        id: generate_number
+        run:  echo "::set-output name=random_number::$(($RANDOM % 2))"
+      - name: Pass or fail
+        run: |
+          if [[ ${{ steps.generate_number.outputs.random_number }} == 0 ]]; then exit 0; else exit 1; fi
