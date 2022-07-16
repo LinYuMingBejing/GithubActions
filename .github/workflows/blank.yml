@@ -1,12 +1,12 @@
-name: learn-github-actions
-on: [push]
-jobs:
+name: learn-github-actions # The name of the workflow as it will appear in the Actions tab of the GitHub repository.
+on: [push] # Specifies the trigger for this workflow.
+jobs: # Groups together all the jobs that run in the learn-github-actions workflow.
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v3 # The uses keyword specifies that this step will run v3 of the actions/checkout action. This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will run against the repository's code.
+      - uses: actions/setup-node@v3 # This step uses the actions/setup-node@v3 action to install the specified version of the Node.js (this example uses v14). This puts both the node and npm commands in your PATH.
         with:
           node-version: '14'
-      - run: npm install -g bats
+      - run: npm install -g bats # The run keyword tells the job to execute a command on the runner.
       - run: bats -v
