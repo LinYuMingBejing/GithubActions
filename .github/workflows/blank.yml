@@ -36,6 +36,11 @@ jobs: # Groups together all the jobs that run in the learn-github-actions workfl
         run: |
           cd /home/runner/work/GithubActions/GithubActions
           ls -al
-      - name: The job has succeeded
-        if: success()
+      #- name: The job has succeeded
+      #  if: success()
+        
+  prod-check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying to production server on branch $GITHUB_REF"
       
