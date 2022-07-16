@@ -37,6 +37,6 @@ jobs:
           
       - shell: bash
         env:
-          SUPER_SECRET: ${{ secrets.ACTIONS_SECRETS }}
+          ACTIONS_SECRETS: ${{ secrets.ACTIONS_SECRETS }}
         run: |
-          example-command "$SUPER_SECRET"
+          example-command "$ACTIONS_SECRETS"
