@@ -1,0 +1,11 @@
+name: Cache workflow
+on: [push]
+jobs:
+  cache_job:
+    - uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+      
