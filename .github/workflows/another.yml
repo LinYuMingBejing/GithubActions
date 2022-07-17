@@ -2,12 +2,12 @@ name: Do anything after the release of the first workflow
 
 on:
   workflow_run:
-    workflows: ["Build"]
+    workflows: ["Github Action Demo"]
     types: [requested, completed]
     branches:
       - main
       - 'releases/**'
-      - '!releases/**-alpha'
+      - '!releases/alpha'
 
 jobs:
   notify:
