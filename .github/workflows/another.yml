@@ -1,4 +1,4 @@
-name: Do anything after the release of the first workflow
+name: Do anything
 
 on:
   workflow_run:
