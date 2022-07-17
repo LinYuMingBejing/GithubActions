@@ -25,4 +25,4 @@ jobs:
         echo A pull request was closed
     - name: use_github_actions_environment
       run: |
-        echo A ${{ github.event.type }} was runnning
+        echo A ${{ github.event_name }} was runnning
