@@ -1,3 +1,4 @@
+name: Github Action Demo
 on: 
   issues: # Using event activity type
     types:
