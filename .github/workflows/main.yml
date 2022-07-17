@@ -8,11 +8,11 @@ on:
   push: # Using filters
     branches:
       - main
-#       - 'releases/**' # include
-#       - '!releases/**-alpha' # exclude
+      - 'releases/**' # include
+      - '!releases/**-alpha' # exclude
 
 jobs:
-  state_event_type: # run different stop based on its events
+  state_event_type: # run different steps based on its event types
     runs-on: ubuntu-latest
     steps:
     - name: if_issue
@@ -23,7 +23,6 @@ jobs:
       if: github.event.pull_request
       run: |
         echo A pull request was closed
-    - name: if_push
-      if: github.event.push
+    - name: push
       run: |
-        echo A push was closed
+        echo A push was runnning
