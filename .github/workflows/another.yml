@@ -12,5 +12,4 @@ jobs:
 
     steps:
       - name: triggrt_another_workflow
-      run: |
-        successfully trigger ${{ github.workflow.name }}.
+        run: ehco successfully trigger ${{ github.workflow.name }}.
