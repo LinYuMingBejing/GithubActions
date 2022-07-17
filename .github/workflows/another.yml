@@ -9,7 +9,6 @@ on:
 jobs:
   notify:
     runs-on: ubuntu-latest
-
     steps:
       - name: triggrt_another_workflow
-        run: ehco successfully trigger ${{ github.workflow.name }}.
+        run: echo successfully trigger ${{ github.workflow.name }}.
