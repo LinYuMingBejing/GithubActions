@@ -8,8 +8,8 @@ on:
   push: # Using filters
     branches:
       - main
-      - 'releases/**' # include
-      - '!releases/**-alpha' # exclude
+#       - 'releases/**' # include
+#       - '!releases/**-alpha' # exclude
 
 jobs:
   state_event_type: # run different stop based on its events
