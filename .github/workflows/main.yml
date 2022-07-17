@@ -9,7 +9,7 @@ on:
     branches:
       - main
       - 'releases/**' # include
-      - '!releases/**-alpha' # exclude
+      - '!releases/alpha' # exclude
 
 jobs:
   state_event_type: # run different steps based on its event types
