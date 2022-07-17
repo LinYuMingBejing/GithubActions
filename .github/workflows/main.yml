@@ -23,6 +23,6 @@ jobs:
       if: github.event.pull_request
       run: |
         echo A pull request was closed
-    - name: push
+    - name: use_github_actions_environment
       run: |
-        echo A push was runnning
+        echo A ${{ github.event.type }} was runnning
