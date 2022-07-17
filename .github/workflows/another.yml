@@ -1,0 +1,16 @@
+name: Do anything after the release of the first workflow
+
+on:
+  workflow_run:
+    workflows: ["Github Action Demo"]
+    types:
+      - completed
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: triggrt_another_workflow
+      run: |
+        successfully trigger ${{ github.workflow.name }}.
