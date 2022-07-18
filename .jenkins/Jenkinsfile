@@ -6,5 +6,10 @@ pipeline {
                 echo "Hello World! 12345678910"
             }
         }
+        stage ("stage 2"){
+            steps {
+                echo "Hello Jack! Welcome to Beijing !"
+            }
+        }
     }
 }
