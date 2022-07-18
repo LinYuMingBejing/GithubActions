@@ -1,3 +1,4 @@
+name: Github Action Demo
 on: 
   issues: # Using event activity type
     types:
@@ -9,7 +10,7 @@ on:
     branches:
       - main
       - 'releases/**' # include
-      - '!releases/**-alpha' # exclude
+      - '!releases/alpha' # exclude
 
 jobs:
   state_event_type: # run different steps based on its event types
@@ -23,6 +24,10 @@ jobs:
       if: github.event.pull_request
       run: |
         echo A pull request was closed
+    - name: if_push
+      if: github.event_name == 'push'
+      run: |
+        echo A pull request was closed  
     - name: use_github_actions_environment
       run: |
         echo A ${{ github.event_name }} was runnning

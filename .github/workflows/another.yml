@@ -1,0 +1,17 @@
+name: Do anything
+
+on:
+  workflow_run:
+    workflows: ["Github Action Demo"]
+    types: [requested, completed]
+    branches:
+      - main
+      - 'releases/**'
+      - '!releases/alpha'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: triggrt_another_workflow
+        run: echo successfully trigger ${{ github.workflow.name }}.
