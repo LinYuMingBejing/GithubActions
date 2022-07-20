@@ -11,5 +11,10 @@ pipeline {
                 echo "Hello Jack! Welcome to Beijing !"
             }
         }
+        stage ("Deploy"){
+            steps {
+                echo "Hello Jack! Welcome to Deploy Process !"
+            }
+        }
     }
 }
