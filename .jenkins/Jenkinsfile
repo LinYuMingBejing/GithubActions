@@ -16,5 +16,10 @@ pipeline {
                 echo "Hello Jack! Welcome to Deploy Process !"
             }
         }
+        stage ("Pass"){
+            steps {
+                echo "Hello Jack! You can leave the office now ~~~"
+            }
+        }
     }
 }
