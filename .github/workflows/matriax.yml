@@ -25,11 +25,11 @@ jobs:
   use_matrix_job:
     runs-on: ubuntu-latest
     needs: [read_file_job]
-    strategy:
-      matrix:
-        file_content: ${{ needs.read_file_job.outputs.file_content }}
+#     strategy:
+#       matrix:
+#         file_content: ${{ needs.read_file_job.outputs.file_content }}
 
     steps:
     - name: Print Matrix Value
       run: |
-        echo "Matrix Value: ${{ matrix.file_content }}"
+        echo "Matrix Value: ${{ needs.read_file_job.outputs.file_content }}"
