@@ -1,0 +1,16 @@
+name: test-call-api
+
+on:
+  workflow_call:
+    inputs:
+      ARTIFACT_NAME:
+        type: string
+        required: true 
+        
+jobs:
+  package_artifact:
+    runs-on: ubuntu-latest
+    steps:
+    - name: print ARTIFACT_NAME
+      run: echo ${{ inputs.ARTIFACT_NAME }}
+        
