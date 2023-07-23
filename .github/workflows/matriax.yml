@@ -1,0 +1,32 @@
+name: test-matriax
+
+on:
+  workflow_call:
+  
+jobs:
+  read_file_job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Read File
+      id: read_file
+      run: |
+        # Read the file and store its content in a variable
+        file_content=$(jq -r ".version" test.json)
+        echo "::set-output name=file_content::$file_content"
+
+  use_matrix_job:
+    runs-on: ubuntu-latest
+
+    # Set up the matrix strategy using the file content as input
+    strategy:
+      matrix:
+        file_content: ${{ fromJson(needs.read_file_job.outputs.file_content) }}
+
+    steps:
+    - name: Print Matrix Value
+      run: |
+        echo "Matrix Value: ${{ toJSON(matrix.file_content) }}"
