@@ -5,12 +5,19 @@ on:
 
         
 jobs:
-  package_artifact:
+  output_print:
     runs-on: ubuntu-latest
     steps:
+    - name: Check folder
+      run: ls -al
+    - name: checkout
+      uses: actions/checkout@v3
+      
     - name: Get Failed
       id: get_filename
-      run: sh .github/workflows/scripts.sh
+      run: |
+        ls -al
+        sh .github/workflows/scripts.sh
     - name: print output
       run: echo ${{ steps.get_filename.outputs.stdout }}"
         
