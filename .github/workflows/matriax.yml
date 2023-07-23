@@ -27,7 +27,7 @@ jobs:
     needs: [read_file_job]
     strategy:
       matrix:
-        file_content: ${{ fromJson(needs.read_file_job.outputs.file_content) }}
+        file_content: ${{ needs.read_file_job.outputs.file_conten) }}
 
     steps:
     - name: Print Matrix Value
