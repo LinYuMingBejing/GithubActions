@@ -16,7 +16,7 @@ jobs:
       id: read_file
       run: |
         # Read the file and store its content in a variable
-        file_content=$(jq -r ".version" test.json)
+        file_content=$(cat test.json)
         echo $file_content
         echo "::set-output name=file_content::$file_content"
 
@@ -26,7 +26,7 @@ jobs:
     # Set up the matrix strategy using the file content as input
     strategy:
       matrix:
-        file_content: ${{ needs.read_file_job.outputs.file_content }}
+        file_content: ${{ needs.read_file_job.outputs.file_content | jq -r '.version | join(",")' }}
 
     steps:
     - name: Print Matrix Value
