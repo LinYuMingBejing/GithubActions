@@ -18,9 +18,9 @@ jobs:
         # Read the file and store its content in a variable
         TTT=$(echo '{"version": ["1.1.1", "2.2.2"]}' | jq -r '.version')
         echo "::set-output name=TTT::$TTT"
-        file_content=$(cat test.json | jq -c '.version')
-        echo $file_content
-        echo "::set-output name=file_content::$(echo ${file_content}"
+        #file_content=$(cat test.json | jq -c '.version')
+        #echo $file_content
+        #echo "::set-output name=file_content::$(echo ${file_content}"
 
   use_matrix_job:
     runs-on: ubuntu-latest
