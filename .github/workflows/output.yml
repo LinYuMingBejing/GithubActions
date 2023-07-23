@@ -18,6 +18,7 @@ jobs:
       run: |
         ls -al
         chmod +x .github/workflows/scripts.sh
+        .github/workflows/scripts.sh
     - name: print output
       run: echo ${{ steps.get_filename.outputs.stdout }}"
         
