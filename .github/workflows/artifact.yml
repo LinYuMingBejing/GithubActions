@@ -1,0 +1,23 @@
+name: test-matriax
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  package_artifact:
+    runs-on: ubuntu-latest
+    steps:
+    - name: check folder
+      run: |
+        pwd && ls -al
+        echo $date >> date.json
+    - name: create folder
+      run: |
+        pwd && ls -al
+    - name: Upload Sigma files
+      uses: actions/upload-artifact@v3
+      with:
+        name: artifact
+        path: |
+          .
+          date.json
