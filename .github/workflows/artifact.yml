@@ -29,8 +29,8 @@ jobs:
         path: |
           #.github
           #test.zip
-          fruit/apple
-          fruit/banana
+          apple.zip
+          banana.zip
           date.json
   download_artifact:
     runs-on: ubuntu-latest
