@@ -26,9 +26,9 @@ jobs:
     # Set up the matrix strategy using the file content as input
     strategy:
       matrix:
-        file_content: ${{ fromJson(needs.read_file_job.outputs.file_content) }}
+        file_content: ${{ needs.read_file_job.outputs.file_content }}
 
     steps:
     - name: Print Matrix Value
       run: |
-        echo "Matrix Value: ${{ toJSON(matrix.file_content) }}"
+        echo "Matrix Value: ${{ matrix.file_content }}"
