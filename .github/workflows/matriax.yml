@@ -18,7 +18,7 @@ jobs:
         # Read the file and store its content in a variable
         file_content=$(jq -r ".version" test.json)
         echo $file_content
-        echo "::set-output name=file_content::$file_content"
+        echo "::set-output name=file_content::$(echo ${file_content}"
 
   use_matrix_job:
     runs-on: ubuntu-latest
