@@ -13,6 +13,8 @@ jobs:
       run: |
         pwd && ls -al
         echo $date >> date.json
+        mkdir -p fruit/apple
+        mkdir -p fruit/banana
     - name: zip folder
       run: |
         zip -r test.zip .github/
@@ -23,8 +25,10 @@ jobs:
       with:
         name: artifact
         path: |
-          .github
+          #.github
           #test.zip
+          fruit/apple
+          fruit/banana
           date.json
   download_artifact:
     runs-on: ubuntu-latest
@@ -42,7 +46,7 @@ jobs:
             
     - name: check folder
       run: |
-        pwd && ls -al
+        pwd
         cat date.json
     - name: create folder
       run: |
