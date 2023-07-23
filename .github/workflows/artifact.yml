@@ -23,8 +23,9 @@ jobs:
       with:
         name: artifact
         path: |
-          test.zip
-          date.json.zip
+          .github
+          #test.zip
+          #date.json.zip
   download_artifact:
     runs-on: ubuntu-latest
     needs: ["package_artifact"]
@@ -36,8 +37,8 @@ jobs:
     - name: Unzip
       run: |
         ls -al
-        unzip date.json.zip  
-        unzip test.zip
+        #unzip date.json.zip  
+        #unzip test.zip
             
     - name: check folder
       run: |
