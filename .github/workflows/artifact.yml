@@ -14,10 +14,33 @@ jobs:
     - name: create folder
       run: |
         pwd && ls -al
+    - name: zip folder
+      run: |
+        zip -r . test.zip
+        zip date.json date.json.zip
+    
     - name: Upload Sigma files
       uses: actions/upload-artifact@v3
       with:
         name: artifact
         path: |
-          .
-          date.json
+          test.zip
+          date.json.zip
+  download_artifact:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Upload Sigma files
+      uses: actions/download-artifact@v3
+      with:
+        name: artifact
+    - name: Unzip
+      run: |
+        unzip test.zip
+        unzip date.json.zip      
+    - name: check folder
+      run: |
+        pwd && ls -al
+        cat date.json
+    - name: create folder
+      run: |
+        pwd && ls -al
