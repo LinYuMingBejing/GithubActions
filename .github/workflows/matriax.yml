@@ -17,6 +17,7 @@ jobs:
       run: |
         # Read the file and store its content in a variable
         TTT=$(echo '{"version": ["1.1.1", "2.2.2"]}' | jq -r '.version')
+        echo $TTT
         echo "::set-output name=file_content::$TTT"
         #file_content=$(cat test.json | jq -c '.version')
         #echo $file_content
