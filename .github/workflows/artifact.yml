@@ -1,4 +1,4 @@
-name: test-matriax
+name: test-artifact
 
 on:
   workflow_dispatch:
