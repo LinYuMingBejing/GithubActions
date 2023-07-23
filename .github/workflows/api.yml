@@ -1,7 +1,7 @@
 name: test-call-api
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       ARTIFACT_NAME:
         type: string
