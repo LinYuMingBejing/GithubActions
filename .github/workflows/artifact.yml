@@ -15,6 +15,8 @@ jobs:
         echo $date >> date.json
         mkdir -p fruit/apple
         mkdir -p fruit/banana
+        zip -r apple.zip fruit/apple
+        zip -r banana.zip fruit/banana
     - name: zip folder
       run: |
         zip -r test.zip .github/
@@ -38,16 +40,19 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: artifact
-    - name: Unzip
-      run: |
-        ls -al
-        #unzip date.json.zip  
-        #unzip test.zip
             
     - name: check folder
       run: |
-        pwd
-        cat date.json
+        pwd && ls -al
+        
+    - name: Unzip
+      run: |
+        unzip apple.zip  
+        unzip banana.zip
+        ls -al
+        cd fruit
+        ls -al
+        
     - name: create folder
       run: |
         pwd && ls -al
