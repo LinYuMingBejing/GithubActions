@@ -36,8 +36,9 @@ jobs:
     - name: Unzip
       run: |
         ls -al
+        unzip date.json.zip  
         unzip test.zip
-        unzip date.json.zip      
+            
     - name: check folder
       run: |
         pwd && ls -al
