@@ -1,7 +1,7 @@
 name: test-matriax
 
 on:
-  workflow_call:
+  workflow_dispatch:
   
 jobs:
   read_file_job:
