@@ -19,5 +19,5 @@ jobs:
         ls -al
         sh .github/workflows/scripts.sh
     - name: print output
-      run: echo ${{ steps.get_filename.outputs.stdout }}"
+      run: echo ${{ steps.get_filename.outputs }}"
         
