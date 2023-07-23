@@ -16,7 +16,7 @@ jobs:
       id: read_file
       run: |
         # Read the file and store its content in a variable
-        file_content=$(jq -r ".version" test.json)
+        file_content=$(cat data.json | jq -c '.version')
         echo $file_content
         echo "::set-output name=file_content::$(echo ${file_content}"
 
