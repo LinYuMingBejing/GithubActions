@@ -35,7 +35,6 @@ jobs:
         name: artifact
     - name: Unzip
       run: |
-        unzip artifact.zip
         ls -al
         unzip test.zip
         unzip date.json.zip      
