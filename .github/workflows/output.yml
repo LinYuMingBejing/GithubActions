@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: Get Failed
       id: get_filename
-      run: sh ./github/workflows/scripts.sh
+      run: sh .github/workflows/scripts.sh
     - name: print output
       run: echo ${{ steps.get_filename.outputs.stdout }}"
         
