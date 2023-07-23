@@ -36,3 +36,8 @@ jobs:
     - name: Print Matrix Value
       run: |
         echo "Matrix Value: ${{ matrix.version }}"
+    - name: Get version
+      run: echo "VERSION=$(echo ${{ matrix.version }}")" >> $GITHUB_ENV
+    - name: Print Version
+      run: |
+        echo ${{ env.VERSION }}
