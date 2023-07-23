@@ -17,7 +17,7 @@ jobs:
       id: get_filename
       run: |
         ls -al
-        .github/workflows/scripts.sh
+        chmod +x .github/workflows/scripts.sh
     - name: print output
       run: echo ${{ steps.get_filename.outputs.stdout }}"
         
