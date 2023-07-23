@@ -18,7 +18,7 @@ jobs:
       id: read_file
       run: |
         # Read the file and store its content in a variable
-        temp=$(echo '{"version": ["1.1.1", "2.2.2"]}' | jq -r '.version')
+        temp=$(jq -r ".version" test.json)
         echo "matrix="$temp"" >> $GITHUB_OUTPUT
         #echo "::set-output name=file_content::$TTT"
         #echo "::set-output name=TTT::$TTT"
