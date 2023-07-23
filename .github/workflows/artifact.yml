@@ -15,7 +15,7 @@ jobs:
         echo $date >> date.json
     - name: zip folder
       run: |
-        zip -r test.zip .
+        zip -r test.zip .github/
         zip date.json.zip date.json 
     
     - name: Upload  files
