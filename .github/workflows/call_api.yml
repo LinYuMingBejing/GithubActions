@@ -1,0 +1,20 @@
+name: test-call-api-2
+
+on:
+  workflow_dispatch: 
+        
+jobs:
+  package_artifact:
+    runs-on: ubuntu-latest
+    steps:
+    - name: print ARTIFACT_NAME
+      run: |
+        curl -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://github.com/api/v3/repos/LinYuMingBejing/GithubActions/actions/workflows/api.yml/dispatches \
+          -d '{
+            "ref":"master",
+            "inputs": {
+              "ARTIFACT_NAME": "Bejing ByeBye~",
+            }
+          }'
