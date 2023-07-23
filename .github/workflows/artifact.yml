@@ -13,12 +13,9 @@ jobs:
       run: |
         pwd && ls -al
         echo $date >> date.json
-    - name: create folder
-      run: |
-        pwd && ls -al
     - name: zip folder
       run: |
-        zip -r . test.zip
+        zip -r ./ test.zip
         zip date.json date.json.zip
     
     - name: Upload Sigma files
