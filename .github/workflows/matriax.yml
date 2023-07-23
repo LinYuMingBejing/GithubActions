@@ -31,7 +31,7 @@ jobs:
     needs: [read_file_job]
     strategy:
       matrix:
-        version: ${{ needs.read_file_job.outputs.matrix }}"
+        version: ${{ fromJson(needs.read_file_job.outputs.matrix) }}
     steps:
     - name: Print Matrix Value
       run: |
