@@ -1,0 +1,16 @@
+name: test-output
+
+on:
+  workflow_dispatch:
+
+        
+jobs:
+  package_artifact:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get Failed
+      id: get_filename
+      run: sh ./github/workflows/scripts.sh
+    - name: print output
+      run: echo ${{ steps.get_filename.outputs.stdout }}"
+        
